@@ -1,0 +1,16 @@
+---
+
+- name: Python specific packages installed
+  sudo: true
+  apt: pkg={{item}} state=latest
+  with_items:
+    - python-pip
+    - python-dev
+
+
+- name: Virtualenv wrapper installed
+  pip: name=virtualenvwrapper state=latest
+
+- name: System iPython installed
+  sudo: true
+  pip: name=ipython state=latest

@@ -1,0 +1,17 @@
+---
+
+- name: Git repo installed
+  sudo: true
+  apt_repository: repo=ppa:git-core/ppa
+
+- name: Git packages installed
+  sudo: true
+  apt: pkg={{item}} state=latest
+  with_items:
+    - git
+    - tig
+    - gitk
+    - git-gui
+
+- name: Git config setup
+  template: src=.gitconfig.j2 dest=/home/{{user}}/.gitconfig owner={{user}} group={{user}} mode=0644 backup=yes

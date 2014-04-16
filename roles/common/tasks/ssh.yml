@@ -1,0 +1,4 @@
+---
+
+- name: SSH dir exists
+  file: path=/home/{{user}}/.ssh state=directory owner={{user}} mode=0700

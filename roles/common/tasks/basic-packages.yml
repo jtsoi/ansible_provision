@@ -1,0 +1,16 @@
+---
+
+- name: Basic packages installed
+  sudo: true
+  apt: pkg={{item}} state=latest
+  with_items:
+    - htop
+    - tree
+    - ack
+    - git
+    - tig
+    - ssh
+    - curl
+    - wget
+    - dstat
+    - python-software-properties

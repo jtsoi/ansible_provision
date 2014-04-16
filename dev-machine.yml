@@ -1,0 +1,10 @@
+---
+- hosts: local
+  connection: local
+  sudo: false
+
+  roles:
+    - common
+    - python-tools
+    - nodejs-tools
+    - vbox-guest

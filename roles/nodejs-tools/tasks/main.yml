@@ -1,0 +1,9 @@
+---
+
+- name: NodeJS repo installed
+  sudo: true
+  apt_repository: repo=ppa:chris-lea/node.js
+
+- name: NodeJS installed
+  sudo: true
+  apt: pkg=nodejs state=latest
