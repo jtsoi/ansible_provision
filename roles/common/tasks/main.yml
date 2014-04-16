@@ -4,5 +4,4 @@
 - include: update.yml
 - include: ssh.yml
 - include: basic-packages.yml
-- include: sublime.yml
 - include: git.yml

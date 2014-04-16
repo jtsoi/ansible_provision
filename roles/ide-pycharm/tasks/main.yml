@@ -1,0 +1,17 @@
+---
+
+- name: Apps directory exists
+  file: path=/home/{{user}}/Apps state=directory
+
+- name: Stat PyCharm dir
+  sudo: true
+  stat: path=/home/{{user}}/Apps/pycharm-{{pycharm_version}}
+  register: pycharm
+
+- name: PyCharm downloaded
+  get_url: url="http://download.jetbrains.com/python/pycharm-professional-{{pycharm_version}}.tar.gz" dest=/tmp/pycharm.tar.gz
+  when: not pycharm.stat.exists
+
+- name: PyCharm installed
+  command: tar -xzf /tmp/pycharm.tar.gz -C /home/{{user}}/Apps/
+  when: not pycharm.stat.exists

@@ -1,0 +1,12 @@
+---
+- name: Chrome repo key exists
+  sudo: true
+  apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
+
+- name: Chrome repo present
+  sudo: true
+  apt_repository: repo='deb http://dl.google.com/linux/chrome/deb/ stable main' state=present
+
+- name: Chrome package installed
+  sudo: true
+  apt: pkg=google-chrome-stable state=latest update_cache=yes

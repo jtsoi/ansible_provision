@@ -5,6 +5,10 @@
 
   roles:
     - common
-    - python-tools
-    - nodejs-tools
+    - sdk-python
+    - sdk-nodejs
+    - sdk-java
+    - ide-pycharm
+    - ide-sublime
+    - browser-chrome
     - vbox-guest
