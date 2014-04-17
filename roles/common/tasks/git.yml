@@ -15,3 +15,12 @@
 
 - name: Git config setup
   template: src=.gitconfig.j2 dest=/home/{{user}}/.gitconfig owner={{user}} group={{user}} mode=0644 backup=yes
+
+- name: HubFlow dir updated
+  git: repo=https://github.com/datasift/gitflow dest=/home/{{user}}/Apps/hubflow
+  register: hubflow
+
+- name: HubFlow installed
+  sudo: true
+  shell: ./install.sh chdir=/home/{{user}}/Apps/hubflow
+  when: hubflow.changed

@@ -11,6 +11,9 @@
 - name: Virtualenv wrapper installed
   pip: name=virtualenvwrapper state=latest
 
+- name: Virtualenv wrapper configured
+  copy: src=virtualenvwrapper.sh dest=/home/{{user}}/.bashrc.d/virtualenvwrapper.sh owner={{user}} group={{user}} mode=0644
+
 - name: System iPython installed
   sudo: true
   pip: name=ipython state=latest

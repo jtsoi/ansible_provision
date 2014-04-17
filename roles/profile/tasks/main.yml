@@ -1,0 +1,12 @@
+---
+
+- name: Inputrc setup
+  copy: src=inputrc dest=/home/{{user}}/.inputrc owner={{user}} group={{user}} mode=644
+
+- name: bashrc.d dir
+  file: path=/home/{{user}}/.bashrc.d state=directory
+
+- name: Bashrc extras
+  lineinfile: dest=/home/{{user}}/.bashrc line=". ~/.bashrc.d/*"
+
+- include: z.yml

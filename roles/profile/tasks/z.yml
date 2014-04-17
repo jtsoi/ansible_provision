@@ -1,0 +1,6 @@
+---
+- name: Z dir updated
+  git: repo=https://github.com/rupa/z.git dest=/home/{{user}}/Apps/z
+
+- name: Z installed
+  file: path=/home/{{user}}/.bashrc.d/z.sh src="~/Apps/z/z.sh" state=link

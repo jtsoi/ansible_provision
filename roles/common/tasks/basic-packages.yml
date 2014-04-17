@@ -1,5 +1,8 @@
 ---
 
+- name: Apps directory exists
+  file: path=/home/{{user}}/Apps state=directory
+
 - name: Basic packages installed
   sudo: true
   apt: pkg={{item}} state=latest

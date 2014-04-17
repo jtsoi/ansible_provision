@@ -5,6 +5,7 @@
 
   roles:
     - common
+    - profile
     - sdk-python
     - sdk-nodejs
     - sdk-java
