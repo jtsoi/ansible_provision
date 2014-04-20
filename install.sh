@@ -8,6 +8,6 @@ cd dev_env_bootstrap
 
 sudo apt-get install python-pip python-dev aptitude -y
 sudo pip install virtualenvwrapper
-source virtualenvwrapper.sh
+. virtualenvwrapper.sh
 mkvirtualenv ansible
 pip install ansible
