@@ -1,0 +1,10 @@
+---
+
+- name: Bumblebee installed
+  sudo: true
+  apt: pkg={{itme}} state=latest
+  with_items:
+    - linux-headers-generic
+    - primus
+    - bumblebee-nvidia
+    - bumblebee

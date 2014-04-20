@@ -1,0 +1,9 @@
+---
+
+- name: Powertop repo installed
+  sudo: true
+  apt_repository: repo=ppa:nilarimogard/webupd8
+
+- name: Powertop installed
+  sudo: true
+  apt: pkg=powertop state=latest update_cache=yes
