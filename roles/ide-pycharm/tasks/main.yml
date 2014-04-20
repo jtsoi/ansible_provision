@@ -12,3 +12,7 @@
 - name: PyCharm installed
   command: tar -xzf /tmp/pycharm.tar.gz -C /home/{{user}}/Apps/
   when: not pycharm.stat.exists
+
+- name: PyCharm menu item
+  sudo: true
+  template: src=pycharm.desktop.j2 dest=/usr/share/applications/pycharm.desktop mode=0644
