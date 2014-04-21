@@ -1,0 +1,4 @@
+---
+
+- name: ssh-agent.sh script in place
+  copy: src=ssh-agent.sh dest=/home/{{user}}/.bashrc.d/ssh-agent.sh owner={{user}} group={{user}} mode=0744

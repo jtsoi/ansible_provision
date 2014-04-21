@@ -10,3 +10,4 @@
   lineinfile: dest=/home/{{user}}/.bashrc line=". ~/.bashrc.d/*"
 
 - include: z.yml
+- include: ssh-agent.yml
