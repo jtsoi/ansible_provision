@@ -1,5 +1,17 @@
 ---
 
+# Note: after installing powertop:
+# Do this:
+#
+# add line:
+# powertop --auto-tune
+# to /etc/rc.local
+
+# also perform these steps:
+# https://help.ubuntu.com/community/AsusZenbookPrime#Power_Saving_Optimizations
+# http://www.webupd8.org/2014/04/prevent-your-laptop-from-overheating.html
+
 - include: powertop.yml
-- include: powerstat.yml
 - include: bumblebee.yml
+- include: tlp.yml
+- include: thermald.yml

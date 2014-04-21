@@ -1,0 +1,5 @@
+---
+
+- name: Thermald installed
+  sudo: true
+  apt: pkg=thermald state=latest

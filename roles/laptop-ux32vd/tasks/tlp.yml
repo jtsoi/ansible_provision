@@ -1,0 +1,12 @@
+---
+
+- name: TLP repo installed
+  sudo: true
+  apt_repository: repo=ppa:linrunner/tlp
+
+- name: TLP installed
+  sudo: true
+  apt: pkg={{item}} state=latest update_cache=yes
+  with_items:
+    - tlp
+    - tlp-rdw

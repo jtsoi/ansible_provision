@@ -1,9 +1,0 @@
----
-
-- name: PowerStat repo installed
-  sudo: true
-  apt_repository: repo=ppa:colin-king/powermanagement
-
-- name: PowerStat installed
-  sudo: true
-  apt: pkg=powerstat state=latest update_cache=yes
