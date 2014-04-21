@@ -14,6 +14,9 @@
 - name: Virtualenv wrapper configured
   copy: src=virtualenvwrapper.sh dest=/home/{{user}}/.bashrc.d/virtualenvwrapper.sh owner={{user}} group={{user}} mode=0644
 
+- name: Sourced virtualenvwrapper.sh from barchrc
+  lineinfile: dest=/home/{{user}}/.bashrc line=". ~/.bashrc.d/virtualenvwrapper.sh"
+
 - name: System iPython installed
   sudo: true
   pip: name=ipython state=latest
