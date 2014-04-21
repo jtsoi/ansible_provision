@@ -9,9 +9,7 @@
   with_items:
     - htop
     - tree
-    - ack
-    - git
-    - tig
+    - ack-grep
     - ssh
     - curl
     - wget
