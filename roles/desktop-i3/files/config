@@ -85,7 +85,7 @@ bindsym $mod+d focus mode_toggle
 bindsym $mod+p focus parent
 
 # focus the child container
-#bindsym $mod+o focus child
+bindsym $mod+o focus child
 
 #move to left/ right
 bindsym $mod+Tab workspace back_and_forth
