@@ -3,4 +3,4 @@
   git: repo=https://github.com/rupa/z.git dest=/home/{{user}}/Apps/z
 
 - name: Z installed
-  copy: src=z.sh dest=/home/{{user}}/.bashrc.d/z.sh owner={{user}} group={{user}} mode=0644
+  lineinfile: dest=/home/{{user}}/.bashrc line=". ~/Apps/z/z.sh"
