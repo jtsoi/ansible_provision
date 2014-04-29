@@ -1,19 +1,7 @@
 ---
 
-- name: I3 repo present
-  sudo: true
-  apt_repository: repo="deb http://debian.sur5r.net/i3/ trusty universe" state=present
-  register: i3repo
-
-- name: I3 repo update 1
-  sudo: true
-  apt: update_cache=yes
-  when: i3repo.changed
-
-- name: I3 repo key installed
-  sudo: true
-  shell: apt-get --allow-unauthenticated install sur5r-keyring
-  when: i3repo.changed
+- name: I3 config dir present
+  file: path=/home/{{user}}/.i3 state=directory owner={{user}} mode=0755
 
 - name: I3 package installed
   sudo: true
