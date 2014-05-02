@@ -1,0 +1,5 @@
+---
+
+- name: MySQL client lib installed
+  sudo: true
+  apt: pkg=libmysqlclient-dev state=latest

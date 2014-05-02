@@ -15,3 +15,4 @@
     - wget
     - dstat
     - python-software-properties
+    - build-essential

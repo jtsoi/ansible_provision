@@ -7,3 +7,7 @@
 - name: NodeJS installed
   sudo: true
   apt: pkg=nodejs state=latest
+
+- name: Grunt-cli installed
+  sudo: true
+  npm: name=grunt-cli global=yes state=latest

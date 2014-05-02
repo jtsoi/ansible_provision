@@ -11,6 +11,8 @@
     - sdk-java
     - ide-pycharm
     - ide-sublime
+    - server-redis
+    - server-mysql
     - browser-chrome
     - vbox-guest
     - desktop-i3

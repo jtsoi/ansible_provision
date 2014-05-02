@@ -1,0 +1,9 @@
+---
+
+- name: Redis repo installed
+  sudo: true
+  apt_repository: repo=ppa:rwky/redis
+
+- name: Redis installed
+  sudo: true
+  apt: pkg=redis-server state=latest

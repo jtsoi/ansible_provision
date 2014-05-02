@@ -7,7 +7,6 @@
     - python-pip
     - python-dev
 
-
 - name: Virtualenv wrapper installed
   pip: name=virtualenvwrapper state=latest
 
