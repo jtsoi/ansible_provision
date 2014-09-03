@@ -9,5 +9,8 @@ cd dev_env_bootstrap
 sudo apt-get install python-pip python-dev aptitude -y
 sudo pip install virtualenvwrapper
 . virtualenvwrapper.sh
-mkvirtualenv ansible
-pip install ansible
+mkvirtualenv dev_bootstrap
+pip install -r requirements.txt
+
+echo "    Make sure you edit group_vars/local"
+echo "    and then run ansible-playbook dev-bootstrap.yml"

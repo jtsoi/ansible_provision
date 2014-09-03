@@ -1,0 +1,9 @@
+---
+
+- name: SMPlayer repo installed
+  sudo: true
+  apt_repository: repo=ppa:rvm/smplayer
+
+- name: I3 package installed
+  sudo: true
+  apt: pkg=smplayer state=latest update_cache=yes
