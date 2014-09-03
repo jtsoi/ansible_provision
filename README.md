@@ -11,4 +11,4 @@ Bootstrap
 Run script
 ==========
 
-    $ ansible-playbook dev-machine.yml -K -i inventory
+    $ ansible-playbook dev-bootstrap.yml -K -i inventory

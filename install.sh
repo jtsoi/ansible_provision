@@ -13,4 +13,4 @@ mkvirtualenv dev_bootstrap
 pip install -r requirements.txt
 
 echo "    Make sure you edit group_vars/local"
-echo "    and then run ansible-playbook dev-bootstrap.yml"
+echo "    and then run ansible-playbook dev-bootstrap.yml  -K -i inventory"
