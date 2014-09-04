@@ -166,3 +166,4 @@ for_window [title="PyCharm"] border none
 
 #Make some windows flaot by deafult
 for_window [title="Git Gui"] floating enable
+for_window [title="gitk"] floating enable
