@@ -4,16 +4,44 @@
   sudo: false
 
   roles:
-    - common
-    - profile
-    - sdk-python
-    - sdk-nodejs
-    - sdk-java
-    - ide-pycharm
-    - ide-sublime
-    - server-redis
-    - server-mysql
-    - browser-chrome
-    - vbox-guest
-    - desktop-i3
-    - laptop-ux32vd
+    - role: common
+      tags: common
+
+    - role: profile
+      tags: profile
+
+    - role: sdk-python
+      tags: python
+
+    - role: sdk-nodejs
+      tags: nodejs
+
+    - role: sdk-java
+      tags: java
+
+    - role: ide-pycharm
+      tags: pycharm
+
+    - role: ide-sublime
+      tags: sublime
+
+    - role: server-redis
+      tags: redis
+
+    - role: server-mysql
+      tags: mysql
+
+    - role: server-docker
+      tags: docker
+
+    - role: browser-chrome
+      tags: chrome
+
+    - role: tools-vbox-guest
+      tags: vbox
+
+    - role: desktop-i3
+      tags: i3
+
+    - role: laptop-ux32vd
+      tags: ux32vd
