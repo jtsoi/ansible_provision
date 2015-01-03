@@ -21,3 +21,8 @@
     update_cache: yes
     cache_valid_time: 600
   sudo: true
+
+- name: Install (or update) fig
+  pip: name=fig
+  when: install_fig
+  sudo: true
