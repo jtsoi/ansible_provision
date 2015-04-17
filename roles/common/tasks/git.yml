@@ -1,26 +1,29 @@
 ---
 
-- name: Git repo installed
+- name: git repo installed
   sudo: true
   apt_repository: repo=ppa:git-core/ppa
 
-- name: Git packages installed
+- name: git packages installed
   sudo: true
-  apt: pkg={{item}} state=latest
+  apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600
   with_items:
     - git
     - tig
     - gitk
     - git-gui
 
-- name: Git config setup
+- name: git config setup
   template: src=.gitconfig.j2 dest=/home/{{user}}/.gitconfig owner={{user}} group={{user}} mode=0644 backup=yes
 
-- name: HubFlow dir updated
-  git: repo=https://github.com/datasift/gitflow dest=/home/{{user}}/Apps/hubflow
+- name: hub-flow dir updated
+  git: repo=https://github.com/datasift/gitflow
+    dest=/home/{{user}}/Apps/hubflow
+    accept_hostkey=yes
+    force=yes
   register: hubflow
 
-- name: HubFlow installed
+- name: hub-flow installed
   sudo: true
   shell: ./install.sh chdir=/home/{{user}}/Apps/hubflow
   when: hubflow.changed

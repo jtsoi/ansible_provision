@@ -1,11 +1,11 @@
 ---
 
-- name: Apps directory exists
+- name: apps directory exists
   file: path=/home/{{user}}/Apps state=directory
 
-- name: Basic packages installed
+- name: basic packages installed
   sudo: true
-  apt: pkg={{item}} state=latest
+  apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600
   with_items:
     - htop
     - tree
@@ -16,3 +16,4 @@
     - dstat
     - python-software-properties
     - build-essential
+    - whois

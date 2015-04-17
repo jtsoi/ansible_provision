@@ -1,0 +1,23 @@
+---
+
+# User configuration
+user: john
+
+
+# Remote user conf
+# Passwd generated using mkpasswd
+user_password: 11222333445566
+
+
+# SSHd config
+# What username to use the pub key from
+github_username: john
+
+
+# Git configuration
+git_username: John Doe
+git_useremail: john@example.com
+
+
+# Versions
+pycharm_version: 3.1.2

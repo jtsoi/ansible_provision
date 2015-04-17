@@ -1,0 +1,23 @@
+---
+## Bootstrap a frash ubuntu server machine, with user: "ubuntu" pass: "reverse"
+# >ansible-playbook nuc-machine.yml -K -k -i inventory -c paramiko --tags=bootstrap --user=ubuntu
+
+# After bootstrap and as normal:
+# >ansible-playbook nuc-machine.yml -K -i inventory
+
+- hosts: nuc
+  sudo: false
+
+  roles:
+
+    - role: remote-user
+      tags: bootstrap
+
+    - role: server-sshd
+      tags: bootstrap
+
+    - role: common
+      tags: common
+
+    - role: server-docker
+      tags: docker

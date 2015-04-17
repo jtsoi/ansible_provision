@@ -1,0 +1,24 @@
+---
+
+- name: ensure user exists
+  user: name={{ user }}
+    state=present
+    password={{ user_password }}
+    shell=/bin/bash
+    groups=adm,sudo,sambashare,plugdev,cdrom
+    append=yes
+  sudo: true
+
+- name: ensure ssh key
+  authorized_key: user={{ user }} key=https://github.com/{{ github_username }}.keys exclusive=yes
+  sudo: true
+
+- name: remove the ubuntu user
+  user: name=ubuntu remove=yes state=absent
+  when: ansible_ssh_user != 'ubuntu'
+  sudo: true
+
+- name: remove /home/ubuntu
+  file: path=/home/ubuntu state=absent
+  when: ansible_ssh_user != 'ubuntu'
+  sudo: true

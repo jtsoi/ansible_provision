@@ -1,28 +1,23 @@
 ---
 
-- name: Add Docker repository key
+- name: add docker repository key
   apt_key:
     id: "A88D21E9"
     url: "http://get.docker.io/gpg"
     state: present
   sudo: true
 
-- name: Add Docker repository and update apt cache
+- name: add docker repository and update apt cache
   apt_repository:
     repo: "deb http://get.docker.io/ubuntu docker main"
     update_cache: yes
     state: present
   sudo: true
 
-- name: Install (or update) docker package
+- name: install (or update) docker package
   apt:
     name: "lxc-docker"
     state: latest
     update_cache: yes
-    cache_valid_time: 600
-  sudo: true
-
-- name: Install (or update) fig
-  pip: name=fig
-  when: install_fig
+    cache_valid_time: 3600
   sudo: true
