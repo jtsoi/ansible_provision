@@ -1,2 +1,2 @@
 
-install_fig: false
+install_compose: true

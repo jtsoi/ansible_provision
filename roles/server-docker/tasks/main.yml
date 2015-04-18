@@ -21,3 +21,8 @@
     update_cache: yes
     cache_valid_time: 3600
   sudo: true
+
+- name: install (or update) docker-compose
+  pip: name=docker-compose state=latest
+  when: install_compose
+  sudo: true
