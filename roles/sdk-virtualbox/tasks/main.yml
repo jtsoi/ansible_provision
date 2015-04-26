@@ -1,0 +1,17 @@
+---
+
+- name: oracle key installed
+  sudo: true
+  apt_key: state=present
+           url=http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc
+
+- name: virtualbox repo present
+  apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib'
+  sudo: true
+
+- name: virtual box & dependencies
+  sudo: true
+  apt: pkg={{item}} state=latest update_cache=yes
+  with_items:
+    - dkms
+    - virtualbox-4.3
