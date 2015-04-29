@@ -1,4 +1,8 @@
 ---
+
+# To run: 
+# ansible-playbook -K -i inventory dev-machine.yml --tags=tags
+
 - hosts: local
   connection: local
   sudo: false

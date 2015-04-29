@@ -1,21 +1,22 @@
 ---
 
-- name: Python specific packages installed
+- name: python packages installed
   sudo: true
   apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600
   with_items:
     - python-pip
     - python-dev
 
-- name: Virtualenv wrapper installed
+- name: virtualenv wrapper installed
+  sudo: true
   pip: name=virtualenvwrapper state=latest
 
-- name: Virtualenv wrapper configured
+- name: virtualenv wrapper configured
   copy: src=virtualenvwrapper.sh dest=/home/{{user}}/.bashrc.d/virtualenvwrapper.sh owner={{user}} group={{user}} mode=0644
 
-- name: Sourced virtualenvwrapper.sh from barchrc
+- name: sourced virtualenvwrapper.sh from barchrc
   lineinfile: dest=/home/{{user}}/.bashrc line=". ~/.bashrc.d/virtualenvwrapper.sh"
 
-- name: System iPython installed
+- name: system ipython installed
   sudo: true
   pip: name=ipython state=latest
