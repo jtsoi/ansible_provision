@@ -1,9 +1,9 @@
 ---
 
-- name: Redis repo installed
+- name: redis repo installed
   sudo: true
   apt_repository: repo=ppa:rwky/redis
 
-- name: Redis installed
+- name: redis installed
   sudo: true
-  apt: pkg=redis-server state=latest
+  apt: pkg=redis-server state=latest update_cache=yes cache_valid_time=3600

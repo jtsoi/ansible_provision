@@ -1,18 +1,10 @@
 ---
 
-- name: /var/downloads dir exists
-  file: path={{ item }} state=directory
-  sudo: true
-  with_items:
-  - /var/downloads
-  - /var/downloads/complete
-  - /var/downloads/incomplete
-  - /var/nas
-
-- name: nfs client package installed
-  sudo: true
-  apt: pkg=nfs-common state=latest update_cache=yes cache_valid_time=3600
-
-- name: mount nas via nfs
-  sudo: true
-  mount: name=/var/nas src="192.168.1.15:/volume2/Nyponet" state=mounted fstype=nfs
+- include: supervisord.yml tags=supervirsord
+- include: nfs_share.yml tags=nfs
+- include: kodi.yml tags=kodi
+- include: deluge.yml tags=deluge
+- include: sabnzb.yml tags=sabnzb
+- include: sickrage.yml tags=sickrage
+- include: couchpotato.yml tags=couchpotato
+- include: htpc_manager.yml tags=htpc_manager

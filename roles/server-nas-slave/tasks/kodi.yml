@@ -1,0 +1,11 @@
+---
+
+- name: kodi repo installed
+  sudo: true
+  apt_repository: repo=ppa:team-xbmc/ppa
+
+- name: kodi installed
+  sudo: true
+  apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600
+  with_items:
+    - kodi

@@ -19,6 +19,9 @@
     - role: common
       tags: common
 
+    - role: server-mysql
+      tags: mysql
+
     - role: server-nas-slave
       tags: nas-slave
 

@@ -1,0 +1,11 @@
+[program:deluge]
+priority=10
+directory={{ user_home }}
+command=/usr/bin/deluged -d -c {{ deluge_config_path }} -L info
+user={{ user }}
+
+[program:deluge-webui]
+priority=11
+directory={{ user_home }}
+command=/usr/bin/deluge-web -c {{ deluge_config_path }}
+user={{ user }}

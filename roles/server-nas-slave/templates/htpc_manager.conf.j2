@@ -1,0 +1,5 @@
+[program:htpc_manager]
+priority=13
+directory={{ htpc_manager_app_path }}
+command=python Htpc.py --datadir {{ htpc_manager_config_path }} --port 8181
+user={{ user }}

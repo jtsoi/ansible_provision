@@ -1,0 +1,5 @@
+[program:couchpotato]
+priority=12
+directory={{ couchpotato_app_path }}
+command=python CouchPotato.py --data_dir {{ couchpotato_config_path }}
+user={{ user }}

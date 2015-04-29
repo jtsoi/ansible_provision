@@ -1,0 +1,23 @@
+---
+
+- name: deluge installed
+  sudo: true
+  apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600
+  with_items:
+    - deluged
+    - deluge-webui
+
+- name: deluge supervisord conf
+  sudo: true
+  template: src=deluge.conf.j2 dest="{{ supervisord_config_path }}/deluge.conf"
+
+- name: supervisord update
+  sudo: true
+  command: supervisorctl update
+
+- name: start deluge
+  sudo: true
+  supervisorctl: name={{ item }} state=started
+  with_items:
+    - deluge
+    - deluge-webui

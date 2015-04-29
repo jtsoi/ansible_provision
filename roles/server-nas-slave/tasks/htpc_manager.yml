@@ -1,0 +1,25 @@
+---
+
+- name: clone htpc_manager
+  git:
+    accept_hostkey: yes
+    clone: yes
+    repo: https://github.com/Hellowlol/HTPC-Manager.git
+    version: master
+    dest: "{{ htpc_manager_app_path }}"
+
+- name: htpc_manager supervisord conf
+  sudo: true
+  template:
+    src: htpc_manager.conf.j2
+    dest: "{{ supervisord_config_path }}/htpc_manager.conf"
+
+- name: supervisord update
+  sudo: true
+  command: supervisorctl update
+
+- name: start htpc_manager
+  sudo: true
+  supervisorctl:
+    name: htpc_manager
+    state: started

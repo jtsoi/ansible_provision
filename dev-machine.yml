@@ -31,8 +31,8 @@
     - role: server-redis
       tags: redis
 
-    - role: server-mysql
-      tags: mysql
+    - role: sdk-mysql
+      tags: mysql-client
 
     - role: server-docker
       tags: docker

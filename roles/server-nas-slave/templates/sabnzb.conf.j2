@@ -1,0 +1,7 @@
+[program:sabnzb]
+priority=10
+directory={{ user_home }}
+command=/usr/bin/sabnzbdplus -s localhost:8080 --browser 0 --logging 1
+user={{ user }}
+environment=
+  HOME='{{ user_home }}'

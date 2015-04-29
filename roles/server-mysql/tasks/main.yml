@@ -1,5 +1,8 @@
 ---
 
-- name: MySQL client lib installed
+# Run mysql_secure_installation manually
+
+- name: mysql server installed
   sudo: true
-  apt: pkg=libmysqlclient-dev state=latest
+  apt: pkg=mysql-server state=latest update_cache=yes cache_valid_time=3600
+

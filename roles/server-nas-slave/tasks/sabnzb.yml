@@ -1,0 +1,25 @@
+---
+
+- name: sabnzb repo installed
+  sudo: true
+  apt_repository: repo=ppa:jcfp/ppa
+
+- name: sabnzb installed
+  sudo: true
+  apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600
+  with_items:
+    - sabnzbdplus
+
+- name: sabnzb supervisord conf
+  sudo: true
+  template: src=sabnzb.conf.j2 dest="{{ supervisord_config_path }}/sabnzb.conf"
+
+- name: supervisord update
+  sudo: true
+  command: supervisorctl update
+
+- name: start sabnzb
+  sudo: true
+  supervisorctl: name={{ item }} state=started
+  with_items:
+    - sabnzb

@@ -1,0 +1,35 @@
+---
+
+- name: couchpotato dependencies installed
+  sudo: true
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - python-cheetah
+
+- name: clone couchpotato
+  git:
+    accept_hostkey: yes
+    clone: yes
+    repo: https://github.com/RuudBurger/CouchPotatoServer.git
+    version: master
+    dest: "{{ couchpotato_app_path }}"
+
+- name: couchpotato supervisord conf
+  sudo: true
+  template:
+    src: couchpotato.conf.j2
+    dest: "{{ supervisord_config_path }}/couchpotato.conf"
+
+- name: supervisord update
+  sudo: true
+  command: supervisorctl update
+
+- name: start couchpotato
+  sudo: true
+  supervisorctl:
+    name: couchpotato
+    state: started
