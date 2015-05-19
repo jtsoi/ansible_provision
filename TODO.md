@@ -2,4 +2,7 @@ Ansible provision setup
 =======================
 
 - Rename project
-- Add ssh_server|remote_server role
+
+- configure pushover
+
+- Remove ssh-agent role, can be autostarted in autostart prefs in lubuntu.

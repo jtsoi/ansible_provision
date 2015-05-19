@@ -1,5 +1,10 @@
 ---
 
+- name: deluge repo installed
+  sudo: true
+  apt_repository:
+    repo: ppa:deluge-team/ppa
+
 - name: deluge installed
   sudo: true
   apt: pkg={{item}} state=latest update_cache=yes cache_valid_time=3600

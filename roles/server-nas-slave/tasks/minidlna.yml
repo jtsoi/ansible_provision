@@ -1,0 +1,21 @@
+---
+
+- name: install minidlna
+  sudo: true
+  apt:
+    pkg: minidlna
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: copy minidlna conf
+  sudo: true
+  template:
+    src: minidlna.conf.j2
+    dest: "/etc/minidlna.conf"
+
+- name: start minidlna
+  sudo: true
+  service:
+    name: minidlna
+    state: restarted

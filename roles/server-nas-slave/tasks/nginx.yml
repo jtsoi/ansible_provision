@@ -1,0 +1,27 @@
+---
+
+- name: install nginx
+  sudo: true
+  apt:
+    pkg: nginx
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: copy proxy file
+  sudo: true
+  copy:
+    src: proxy.conf
+    dest: "/etc/nginx/proxy.conf"
+
+- name: copy site file
+  sudo: true
+  copy:
+    src: nuc.conf
+    dest: "/etc/nginx/sites-available/default"
+
+- name: restart nginx
+  sudo: true
+  service:
+    name: nginx
+    state: restarted

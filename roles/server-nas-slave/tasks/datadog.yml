@@ -1,0 +1,35 @@
+---
+
+- name: add datadog repository key
+  sudo: true
+  apt_key:
+    id: "C7A7DA52"
+    keyserver: keyserver.ubuntu.com
+    state: present
+
+- name: add datadog repository and update apt cache
+  sudo: true
+  apt_repository:
+    repo: "deb http://apt.datadoghq.com/ stable main"
+    update_cache: yes
+    state: present
+
+- name: install datadog agent
+  sudo: true
+  apt:
+    pkg: datadog-agent
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: copy datadog conf
+  sudo: true
+  template:
+    src: datadog.conf.j2
+    dest: "/etc/dd-agent/datadog.conf"
+
+- name: start datadog
+  sudo: true
+  service:
+    name: datadog-agent
+    state: started

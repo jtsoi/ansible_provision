@@ -1,6 +1,6 @@
 ---
 ## Bootstrap a frash ubuntu server machine, with user: "ubuntu" pass: "reverse"
-# >ansible-playbook nuc-machine.yml -K -k -i inventory -c paramiko --tags=bootstrap --user=ubuntu
+# >ansible-playbook nuc-machine.yml -K -k -i inventory -c paramiko --tags=bootstrap --user=initial-user
 
 # After bootstrap and as normal:
 # >ansible-playbook nuc-machine.yml -K -i inventory
@@ -19,11 +19,5 @@
     - role: common
       tags: common
 
-    - role: server-mysql
-      tags: mysql
-
     - role: server-nas-slave
       tags: nas-slave
-
-    - role: server-docker
-      tags: docker

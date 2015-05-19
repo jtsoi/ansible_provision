@@ -2,6 +2,8 @@
 user_home: "/home/{{ user }}"
 nfs_mount_path: "{{ user_home }}/NAS"
 
+downloads_path: "{{ user_home }}/Downloads"
+
 supervisord_config_path: "/etc/supervisor/conf.d"
 
 deluge_config_path: "{{ user_home }}/.deluge"

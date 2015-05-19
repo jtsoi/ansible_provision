@@ -2,9 +2,13 @@
 
 - include: supervisord.yml tags=supervirsord
 - include: nfs_share.yml tags=nfs
-- include: kodi.yml tags=kodi
+- include: downloads.yml tags=downloads
+- include: nginx.yml tags=nginx
+# - include: kodi.yml tags=kodi
 - include: deluge.yml tags=deluge
 - include: sabnzb.yml tags=sabnzb
 - include: sickrage.yml tags=sickrage
 - include: couchpotato.yml tags=couchpotato
+- include: datadog.yml tags=datadog
+# - include: minidlna.yml tags=minidlna
 - include: htpc_manager.yml tags=htpc_manager

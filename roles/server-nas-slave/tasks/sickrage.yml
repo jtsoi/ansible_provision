@@ -18,6 +18,13 @@
     version: master
     dest: "{{ sickrage_app_path }}"
 
+- name: configure webroot
+  lineinfile:
+    create: yes
+    dest: "{{ sickrage_config_path }}/config.ini"
+    regexp: "^web_root"
+    line: 'web_root = "/shows"'
+
 - name: sickrage supervisord conf
   sudo: true
   template:
