@@ -1,6 +1,6 @@
 ---
 
-- name: python specific packages installed
+- name: python packages installed
   sudo: true
   apt:
     pkg: "{{ item }}"
