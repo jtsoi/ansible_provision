@@ -7,4 +7,3 @@
   file: path=/home/{{user}}/.bashrc.d state=directory
 
 - include: z.yml
-- include: ssh-agent.yml
