@@ -1,9 +1,0 @@
----
-
-- name: Sublime repo installed
-  sudo: true
-  apt_repository: repo=ppa:webupd8team/sublime-text-3
-
-- name: Sublime Text 3 installed
-  sudo: true
-  apt: pkg=sublime-text-installer state=latest

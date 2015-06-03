@@ -29,9 +29,6 @@
     - role: ide-pycharm
       tags: pycharm
 
-    - role: ide-sublime
-      tags: sublime
-
     - role: server-redis
       tags: redis
 
