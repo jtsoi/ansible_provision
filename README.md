@@ -1,14 +1,17 @@
-Ansible dev setup
+Ansible provision
 =================
-This ansible project configures a *buntu machine for development.
+Personal scripts to setup dev machines, and other personal servers.
+Stop looking you wont find any private keys or API keys here. =P
 
 
-Bootstrap
-=========
+Get started
+===========
 
-    $ wget --no-check-certificate https://raw.githubusercontent.com/jtsoi/dev_env_bootstrap/master/install.sh -O - | bash
+    $ git clone git@github.com:jtsoi/ansible_provision.git
+    $ cd ansible_provision
+    $ nano group_vars/all  # Edit with your data.
 
-Run script
-==========
+Dev machine
+===========
 
-    $ ansible-playbook dev-bootstrap.yml -K -i inventory
+    $ ansible-playbook -K -i inventory dev-machine.yml --tags=tags

@@ -17,8 +17,8 @@
     - role: sdk-python
       tags: python
 
-    - role: sdk-virtualbox
-      tags: virtualbox
+#    - role: sdk-virtualbox
+#      tags: virtualbox
 
     - role: sdk-nodejs
       tags: nodejs
@@ -44,11 +44,8 @@
     - role: browser-chrome
       tags: chrome
 
-    - role: tools-vbox-guest
-      tags: vbox
-
     - role: desktop-i3
       tags: i3
 
-    - role: laptop-ux32vd
-      tags: ux32vd
+#    - role: laptop-ux32vd
+#      tags: ux32vd

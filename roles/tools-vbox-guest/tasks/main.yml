@@ -1,5 +1,0 @@
----
-
-- name: DKMS package installed
-  sudo: true
-  apt: pkg=dkms state=latest
