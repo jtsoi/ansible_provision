@@ -2,21 +2,21 @@
 
 - name: add docker repository key
   apt_key:
-    id: "A88D21E9"
-    url: "http://get.docker.io/gpg"
+    id: "2C52609D"
+    url: "https://apt.dockerproject.org/gpg"
     state: present
   sudo: true
 
 - name: add docker repository and update apt cache
   apt_repository:
-    repo: "deb http://get.docker.io/ubuntu docker main"
+    repo: "deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main"
     update_cache: yes
     state: present
   sudo: true
 
 - name: install (or update) docker package
   apt:
-    name: "lxc-docker"
+    name: "docker-engine"
     state: latest
     update_cache: yes
     cache_valid_time: 3600
