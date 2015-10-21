@@ -29,6 +29,9 @@
     - role: ide-pycharm
       tags: pycharm
 
+    - role: ide-atom
+      tags: atom
+
     - role: server-redis
       tags: redis
 

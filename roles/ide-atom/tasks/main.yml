@@ -1,0 +1,9 @@
+---
+
+- name: Download atom
+  get_url: url="https://atom.io/download/deb" dest="/tmp/atom.deb"
+  sudo: true
+
+- name: Install atom for Debian OS family
+  apt: deb="/tmp/atom.deb"
+  sudo: true
