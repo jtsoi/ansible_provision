@@ -163,6 +163,7 @@ bindsym XF86AudioMute exec amixer -q sset Master toggle
 #remove title bar for some windows.
 for_window [class="Google-chrome" title="Google Chrome"] border none
 for_window [title="PyCharm"] border none
+for_window [title="Atom"] border none
 
 #Make some windows flaot by deafult
 for_window [title="Git Gui"] floating enable
