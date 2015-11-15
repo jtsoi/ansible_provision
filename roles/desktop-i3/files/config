@@ -161,7 +161,8 @@ bindsym XF86AudioLowerVolume  exec amixer -q sset Master 5%- unmute
 bindsym XF86AudioMute exec amixer -q sset Master toggle
 
 #remove title bar for some windows.
-for_window [class="Google-chrome" title="Google Chrome"] border none
+for_window [class="google-chrome"] border none
+for_window [window_role="browser"] border none
 for_window [title="PyCharm"] border none
 for_window [title="Atom"] border none
 
