@@ -2,7 +2,7 @@
 
 - name: State of Oracle JDK installation
   sudo: true
-  stat: path=/usr/lib/jvm/java-7-oracle
+  stat: path=/usr/lib/jvm/java-8-oracle
   register: java
 
 - name: JDK repo installed
@@ -15,7 +15,11 @@
   shell: echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
   when: not java.stat.exists
 
-- name: JDK 7 package installed
+- name: JDK 8 package installed
   sudo: true
-  apt: pkg=oracle-java7-installer state=latest
+  apt: pkg=oracle-java8-installer state=latest
   when: not java.stat.exists
+
+- name: Maven package installed
+  sudo: true
+  apt: pkg=maven state=latest
