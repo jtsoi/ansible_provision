@@ -20,7 +20,7 @@ git_useremail: john@example.com
 
 
 # Versions
-pycharm_version: 3.1.2
+pycharm_version: 5.0.1
 
 # Datadog
 # datadog_api_key: "XXXyyyZZZ"
