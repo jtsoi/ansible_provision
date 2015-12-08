@@ -13,6 +13,10 @@
   command: tar -xzf /tmp/intellij.tar.gz -C /home/{{user}}/Apps/
   when: not intellij.stat.exists
 
+- name: Move to correct folder
+  shell: mv /home/{{user}}/Apps/idea-* /home/{{user}}/Apps/intellij-{{intellij_version}}
+  when: not intellij.stat.exists
+
 - name: intellij menu item
   sudo: true
   template: src=intellij.desktop.j2 dest=/usr/share/applications/intellij.desktop mode=0644
