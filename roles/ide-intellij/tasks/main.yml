@@ -1,0 +1,18 @@
+---
+
+- name: Stat intellij dir
+  sudo: true
+  stat: path=/home/{{user}}/Apps/intellij-{{intellij_version}}
+  register: intellij
+
+- name: intellij downloaded
+  get_url: url="https://download.jetbrains.com/idea/ideaIU-{{intellij_version}}.tar.gz" dest=/tmp/intellij.tar.gz
+  when: not intellij.stat.exists
+
+- name: intellij installed
+  command: tar -xzf /tmp/intellij.tar.gz -C /home/{{user}}/Apps/
+  when: not intellij.stat.exists
+
+- name: intellij menu item
+  sudo: true
+  template: src=intellij.desktop.j2 dest=/usr/share/applications/intellij.desktop mode=0644

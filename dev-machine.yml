@@ -1,6 +1,6 @@
 ---
 
-# To run: 
+# To run:
 # ansible-playbook -K -i inventory dev-machine.yml --tags=tags
 
 - hosts: local
@@ -28,6 +28,9 @@
 
     - role: ide-pycharm
       tags: pycharm
+
+    - role: ide-intellij
+      tags: intellij
 
     - role: ide-atom
       tags: atom
