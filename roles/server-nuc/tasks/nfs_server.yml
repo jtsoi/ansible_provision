@@ -1,0 +1,31 @@
+---
+
+- name: nfs server package installed
+  sudo: true
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - rpcbind
+    - nfs-common
+    - nfs-kernel-server
+
+- name: restart rpcbind server
+  sudo: true
+  service:
+    name: rpcbind
+    state: restarted
+
+- name: share folder, shared
+  sudo: true
+  lineinfile:
+    dest: "/etc/exports"
+    line: "/share  192.168.0.0/16(ro,no_subtree_check,root_squash,all_squash,insecure)"
+
+- name: restart nfs server
+  sudo: true
+  service:
+    name: nfs-kernel-server
+    state: restarted

@@ -1,8 +1,9 @@
 
 user_home: "/home/{{ user }}"
-nfs_mount_path: "{{ user_home }}/NAS"
 
-downloads_path: "{{ user_home }}/Downloads"
+nfs_mount_path: "/nas"
+
+downloads_path: "/downloads"
 
 supervisord_config_path: "/etc/supervisor/conf.d"
 

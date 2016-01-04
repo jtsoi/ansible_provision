@@ -1,0 +1,33 @@
+---
+
+- name: nfs client package installed
+  sudo: true
+  apt:
+    pkg: nfs-common
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: nas directory exists
+  sudo: true
+  file:
+    path: "{{nfs_mount_path}}"
+    state: directory
+
+- name: mount nas via nfs
+  sudo: true
+  mount:
+    name: "{{nfs_mount_path}}"
+    src: "192.168.1.15:/volume2/Nyponet"
+    state: mounted
+    fstype: nfs
+    opts: noatime
+
+- name: fstab mount nfs
+  sudo: true
+  mount:
+    name: "{{nfs_mount_path}}"
+    src: "192.168.1.15:/volume2/Nyponet"
+    state: present
+    fstype: nfs
+    opts: noatime

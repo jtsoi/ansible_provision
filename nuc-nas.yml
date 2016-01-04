@@ -19,5 +19,8 @@
     - role: common
       tags: common
 
-    - role: server-nas-slave
-      tags: nas-slave
+    - role: server-supervisord
+      tags: supervisord
+
+    - role: server-nuc
+      tags: nuc

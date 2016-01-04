@@ -1,6 +1,5 @@
 ---
 
-- include: supervisord.yml tags=supervirsord
 - include: nfs_share.yml tags=nfs
 - include: downloads.yml tags=downloads
 - include: nginx.yml tags=nginx

@@ -1,0 +1,18 @@
+---
+
+- name: download folders exist
+  sudo: true
+  file:
+    path: "{{ downloads_path }}/{{ item }}"
+    state: directory
+    owner: "{{user}}"
+    group: "public"
+  with_items:
+    - for_couchpotato
+    - for_sickrage
+    - for_sabnzb
+    - for_deluge
+    - archive/nzb
+    - archive/torrent
+    - incomplete/sabnzbd
+    - incomplete/deluge

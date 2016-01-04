@@ -39,4 +39,4 @@
   sudo: true
   supervisorctl:
     name: sickrage
-    state: started
+    state: restarted

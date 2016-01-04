@@ -1,0 +1,34 @@
+---
+
+- name: key for btsync repo
+  sudo: true
+  apt_key:
+    id: 6BF18B15
+    state: present
+    url: http://stinkfoot.org:11371/pks/lookup?op=get&search=0x40FC0CD26BF18B15
+
+- name: deb repo for btsync
+  sudo: true
+  apt_repository:
+    repo: 'deb http://debian.yeasoft.net/btsync {{ ansible_distribution_release }} main'
+    state: present
+
+- name: btsync installed
+  sudo: true
+  apt:
+    pkg: btsync
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+
+- sudo: true
+  group:
+    name: public
+    state: present
+    gid: 2022
+
+- sudo: true
+  user:
+    name: "btsync"
+    groups: public
+    append: yes

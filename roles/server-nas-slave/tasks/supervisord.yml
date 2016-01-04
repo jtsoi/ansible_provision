@@ -1,5 +1,0 @@
----
-
-- name: supervisord installed
-  sudo: true
-  apt: pkg=supervisor state=latest update_cache=yes cache_valid_time=3600

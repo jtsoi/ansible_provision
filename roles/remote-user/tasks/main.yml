@@ -5,7 +5,7 @@
     state=present
     password={{ user_password }}
     shell=/bin/bash
-    groups=adm,sudo,sambashare,plugdev,cdrom
+    groups=adm,sudo,plugdev,cdrom
     append=yes
   sudo: true
 
@@ -13,12 +13,18 @@
   authorized_key: user={{ user }} key=https://github.com/{{ github_username }}.keys exclusive=yes
   sudo: true
 
-- name: remove the ubuntu user
-  user: name=ubuntu remove=yes state=absent
-  when: ansible_ssh_user != 'ubuntu'
+- name: remove the default user {item}
+  user: name={item} remove=yes state=absent
+  when: ansible_ssh_user != '{item}'
   sudo: true
+  with_items:
+    - ubuntu
+    - pi
 
-- name: remove /home/ubuntu
+- name: remove /home/{item}
   file: path=/home/ubuntu state=absent
-  when: ansible_ssh_user != 'ubuntu'
+  when: ansible_ssh_user != '{item}'
   sudo: true
+  with_items:
+    - ubuntu
+    - pi
