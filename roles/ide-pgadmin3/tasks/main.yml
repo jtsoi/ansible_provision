@@ -1,0 +1,20 @@
+---
+
+
+- name: pg key installed
+  apt_key:
+    state: present
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+  sudo: true
+
+
+- name: pg repo present
+  apt_repository:
+    repo: 'deb http://apt.postgresql.org/pub/repos/apt/ {{ansible_distribution_release}}-pgdg main'
+  sudo: true
+
+- name: pgadmin3 package installed
+  sudo: true
+  apt:
+    pkg: pgadmin3
+    state: latest

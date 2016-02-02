@@ -29,6 +29,9 @@
     - role: ide-pycharm
       tags: pycharm
 
+    - role: ide-pgadmin3
+      tags: pgadmin3
+
     - role: ide-intellij
       tags: intellij
 
