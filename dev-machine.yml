@@ -20,6 +20,9 @@
     - role: sdk-virtualbox
       tags: virtualbox
 
+    - role: server-vagrant
+      tags: vagrant
+
     - role: sdk-nodejs
       tags: nodejs
 
