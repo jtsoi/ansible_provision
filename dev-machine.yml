@@ -17,8 +17,8 @@
     - role: sdk-python
       tags: python
 
-#    - role: sdk-virtualbox
-#      tags: virtualbox
+    - role: sdk-virtualbox
+      tags: virtualbox
 
     - role: sdk-nodejs
       tags: nodejs
