@@ -163,7 +163,8 @@ bindsym XF86AudioMute exec amixer -q sset Master toggle
 #remove title bar for some windows.
 for_window [class="google-chrome"] border none
 for_window [window_role="browser"] border none
-for_window [title="PyCharm"] border none
+for_window [class="jetbrains-pycharm"] border none
+for_window [class="jetbrains-datagrip"] border none
 for_window [title="IntelliJ"] border none
 for_window [title="Atom"] border none
 

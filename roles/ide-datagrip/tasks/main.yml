@@ -1,0 +1,20 @@
+---
+
+- name: stat datagrip dir
+  sudo: true
+  stat: path=/home/{{user}}/Apps/DataGrip-{{pycharm_version}}
+  register: datagrip
+
+- name: datagrip downloaded
+  get_url:
+    url: "https://download.jetbrains.com/datagrip/datagrip-{{datagrip_version}}-custom-jdk-linux.tar.gz"
+    dest: "/tmp/datagrip.tar.gz"
+  when: not datagrip.stat.exists
+
+- name: datagrip installed
+  command: tar -xzf /tmp/datagrip.tar.gz -C /home/{{user}}/Apps/
+  when: not datagrip.stat.exists
+
+- name: datagrip menu item
+  sudo: true
+  template: src=datagrip.desktop.j2 dest=/usr/share/applications/datagrip.desktop mode=0644

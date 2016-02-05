@@ -32,6 +32,9 @@
     - role: ide-pycharm
       tags: pycharm
 
+    - role: ide-datagrip
+      tags: datagrip
+
     - role: ide-pgadmin3
       tags: pgadmin3
 
