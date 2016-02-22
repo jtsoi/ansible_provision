@@ -1,0 +1,7 @@
+---
+
+- name: ssh-agent.sh script in place
+  copy: src=ssh-agent.sh dest=/home/{{user}}/.bashrc.d/aliases.sh owner={{user}} group={{user}} mode=0744
+
+- name: aliases installed
+  lineinfile: dest=/home/{{user}}/.bashrc line=". ~/.bashrc.d/aliases.sh"

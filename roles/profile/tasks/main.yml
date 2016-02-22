@@ -8,3 +8,4 @@
 
 - include: z.yml
 - include: ssh-agent.yml
+- include: aliases.yml
