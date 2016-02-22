@@ -11,8 +11,8 @@ deluge_config_path: "{{ user_home }}/.deluge"
 
 sabnzb_config_path: "{{ user_home }}/.sabnzb"
 
-sickrage_app_path: "{{ user_home }}/Apps/sickrage"
-sickrage_config_path: "{{ user_home }}/.sickrage"
+sickbeard_app_path: "{{ user_home }}/Apps/sickbeard"
+sickbeard_config_path: "{{ user_home }}/.sickbeard"
 
 couchpotato_app_path: "{{ user_home }}/Apps/couchpotato"
 couchpotato_config_path: "{{ user_home }}/.couchpotato"

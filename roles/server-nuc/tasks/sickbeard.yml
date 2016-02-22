@@ -1,0 +1,35 @@
+---
+
+- name: sickbeard dependencies installed
+  sudo: true
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - python-cheetah
+
+- name: clone sickbeard
+  git:
+    accept_hostkey: yes
+    clone: yes
+    repo: https://github.com/midgetspy/Sick-Beard.git
+    version: master
+    dest: "{{ sickbeard_app_path }}"
+
+- name: sickbeard supervisord conf
+  sudo: true
+  template:
+    src: sickbeard.conf.j2
+    dest: "{{ supervisord_config_path }}/sickbeard.conf"
+
+- name: supervisord update
+  sudo: true
+  command: supervisorctl update
+
+- name: start sickbeard
+  sudo: true
+  supervisorctl:
+    name: sickbeard
+    state: restarted

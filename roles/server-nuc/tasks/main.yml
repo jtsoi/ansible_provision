@@ -6,7 +6,7 @@
 # - include: kodi.yml tags=kodi
 - include: deluge.yml tags=deluge
 - include: sabnzb.yml tags=sabnzb
-- include: sickrage.yml tags=sickrage
+- include: sickbeard.yml tags=sickbeard
 - include: couchpotato.yml tags=couchpotato
 - include: datadog.yml tags=datadog
 # - include: minidlna.yml tags=minidlna

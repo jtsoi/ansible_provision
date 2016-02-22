@@ -1,0 +1,5 @@
+[program:sickbeard]
+priority=12
+directory={{ sickbeard_app_path }}
+command=python SickBeard.py -p 8081 --nolaunch --datadir={{ sickbeard_config_path }}
+user={{ user }}
