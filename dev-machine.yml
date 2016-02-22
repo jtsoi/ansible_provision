@@ -17,8 +17,11 @@
     - role: sdk-python
       tags: python
 
-#    - role: sdk-virtualbox
-#      tags: virtualbox
+    - role: sdk-virtualbox
+      tags: virtualbox
+
+    - role: server-vagrant
+      tags: vagrant
 
     - role: sdk-nodejs
       tags: nodejs
@@ -28,6 +31,9 @@
 
     - role: ide-pycharm
       tags: pycharm
+
+    - role: ide-datagrip
+      tags: datagrip
 
     - role: ide-pgadmin3
       tags: pgadmin3
