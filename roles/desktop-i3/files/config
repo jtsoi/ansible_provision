@@ -162,6 +162,9 @@ bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
 bindsym XF86AudioLowerVolume  exec amixer -q sset Master 5%- unmute
 bindsym XF86AudioMute exec amixer -q sset Master toggle
 
+# Application startup shortcuts
+bindsym $mod+w exec google-chrome
+
 #remove title bar for some windows.
 for_window [class="google-chrome"] border none
 for_window [window_role="browser"] border none
