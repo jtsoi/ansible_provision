@@ -1,0 +1,22 @@
+---
+
+- name: variety repo installed
+  sudo: true
+  apt_repository:
+    repo: ppa:peterlevi/ppa
+
+- name: variety installed
+  sudo: true
+  apt:
+    pkg: variety
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: feh installed
+  sudo: true
+  apt:
+    pkg: feh
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600

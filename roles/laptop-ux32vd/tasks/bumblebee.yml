@@ -2,7 +2,7 @@
 
 - name: Bumblebee installed
   sudo: true
-  apt: pkg={{itme}} state=latest
+  apt: pkg={{item}} state=latest
   with_items:
     - linux-headers-generic
     - primus

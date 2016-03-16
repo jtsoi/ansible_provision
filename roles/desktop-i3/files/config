@@ -92,7 +92,6 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+control+Right workspace next
 bindsym $mod+control+Left workspace prev
 
-
 # switch to workspace
 bindsym $mod+1 workspace 1:term
 bindsym $mod+2 workspace 2:term
@@ -159,6 +158,9 @@ bar {
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
 bindsym XF86AudioLowerVolume  exec amixer -q sset Master 5%- unmute
 bindsym XF86AudioMute exec amixer -q sset Master toggle
+
+# Application startup shortcuts
+bindsym $mod+w exec google-chrome
 
 #remove title bar for some windows.
 for_window [class="google-chrome"] border none
