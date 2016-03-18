@@ -1,7 +1,36 @@
 ---
 
-- name: ssh-agent.sh script in place
-  copy: src=ssh-agent.sh dest=/home/{{user}}/.bashrc.d/ssh-agent.sh owner={{user}} group={{user}} mode=0744
+- name: ssh dir exists
+  file:
+    path: /home/{{user}}/.ssh
+    state: directory
+    owner: "{{user}}"
+    mode: 0700
 
-- name: Sourced ssh-agent.sh from barchrc
-  lineinfile: dest=/home/{{user}}/.bashrc line=". ~/.bashrc.d/ssh-agent.sh"
+- name: ssh_config script in place
+  copy:
+    src: ssh_config
+    dest: /home/{{user}}/.ssh/config
+    owner: "{{user}}"
+    group: "{{user}}"
+    mode: 0600
+
+- name: ssh-agent.sh script in place
+  copy:
+    src: ssh-agent.sh
+    dest: /home/{{user}}/.bashrc.d/ssh-agent.sh
+    owner: "{{user}}"
+    group: "{{user}}"
+    mode: 0744
+
+- name: sourced ssh-agent.sh from barchrc
+  lineinfile:
+    dest: /home/{{user}}/.bashrc
+    line: ". ~/.bashrc.d/ssh-agent.sh"
+
+- name:  dont send locale on ssh
+  sudo: true
+  replace:
+    dest: /etc/ssh/ssh_config
+    regexp: "^[\\s]{4}SendEnv.+"
+    replace: "#   SendEnv LANG LC_*"

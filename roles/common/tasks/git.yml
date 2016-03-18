@@ -12,6 +12,7 @@
     - tig
     - gitk
     - git-gui
+    - git-flow
 
 - name: git config setup
   template: src=.gitconfig.j2 dest=/home/{{user}}/.gitconfig owner={{user}} group={{user}} mode=0644 backup=yes

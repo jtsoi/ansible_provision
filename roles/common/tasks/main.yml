@@ -1,6 +1,5 @@
 ---
 # Common system stuff.
 
-- include: ssh.yml
 - include: basic-packages.yml
 - include: git.yml
