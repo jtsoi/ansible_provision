@@ -1,13 +1,17 @@
-
-PYTHON_BIN := ~/.virtualenvs/ansible_provision/bin
+PYTHON_BIN :=.venv/bin
 
 all: install
 
-.PHONY: dev.% pull-vars push-vars install virtualenv check-aws-env
+.PHONY: dev.% pull-vars push-vars install virtualenv check-aws-env .venv
 
-install:
-	$(PYTHON_BIN)/pip install -r requirements.txt
-	make pull-vars
+install: .venv
+
+.venv: $(PYTHON_BIN)/activate
+
+$(PYTHON_BIN)/activate: requirements.txt
+	test -d $(PYTHON_BIN) || virtualenv .venv
+	$(PYTHON_BIN)/pip install -Ur requirements.txt
+	touch $(PYTHON_BIN)/activate
 
 
 check-aws-env:
