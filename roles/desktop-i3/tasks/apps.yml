@@ -1,0 +1,17 @@
+---
+
+- name: shutter installed
+  sudo: true
+  apt:
+    pkg: shutter
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: pinta installed
+  sudo: true
+  apt:
+    pkg: pinta
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600

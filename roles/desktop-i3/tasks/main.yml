@@ -14,3 +14,4 @@
   copy: src=.i3status.conf dest=/home/{{user}}/.i3status.conf owner={{user}} group={{user}} mode=0644
 
 - include: wallpapers.yml
+- include: apps.yml
