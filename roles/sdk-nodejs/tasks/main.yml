@@ -1,13 +1,22 @@
 ---
 
-- name: NodeJS repo installed
+- name: add node repository key
+  apt_key:
+    url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+    state: present
   sudo: true
-  apt_repository: repo=ppa:chris-lea/node.js
 
-- name: NodeJS installed
+- name: add node repository and update apt cache
+  apt_repository:
+    repo: "deb https://deb.nodesource.com/{{ node_version }} {{ ansible_distribution_release }} main"
+    update_cache: yes
+    state: present
+  sudo: true
+
+- name: node package installed
   sudo: true
   apt: pkg=nodejs state=latest
 
-- name: Grunt-cli installed
+- name: grunt-cli installed
   sudo: true
   npm: name=grunt-cli global=yes state=latest
