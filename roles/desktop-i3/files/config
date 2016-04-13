@@ -161,6 +161,8 @@ bindsym XF86AudioMute exec amixer -q sset Master toggle
 
 # Application startup shortcuts
 bindsym $mod+w exec google-chrome
+bindsym $mod+Print exec setxkbmap -v us
+bindsym $mod+Scroll_Lock exec setxkbmap -v se
 
 #remove title bar for some windows.
 for_window [class="google-chrome"] border none
