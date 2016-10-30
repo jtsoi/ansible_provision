@@ -147,6 +147,20 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# Shutdown mode
+set $mode_system System (l) lock, (s) suspend, (r) reboot, (q) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym q exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "$mode_system"
+
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -166,12 +180,13 @@ bindsym $mod+Scroll_Lock exec setxkbmap -v se
 
 #remove title bar for some windows.
 for_window [class="google-chrome"] border none
+for_window [class="Spotify"] border none
 for_window [window_role="browser"] border none
 for_window [class="jetbrains-pycharm"] border none
 for_window [class="jetbrains-datagrip"] border none
 for_window [title="IntelliJ"] border none
 for_window [title="Atom"] border none
 
-#Make some windows flaot by deafult
+#Make some windows float by deafult
 for_window [title="Git Gui"] floating enable
 for_window [title="gitk"] floating enable

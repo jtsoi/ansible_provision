@@ -59,5 +59,8 @@
     - role: desktop-i3
       tags: i3
 
+    - role: desktop-kodi
+      tags: kodi
+
     - role: laptop-ux32vd
       tags: ux32vd
