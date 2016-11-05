@@ -1,8 +1,10 @@
 Ansible provision setup
 =======================
 
-- Rename project
-
-- configure pushover
-
-- Remove ssh-agent role, can be autostarted in autostart prefs in lubuntu.
+TODO:
++ update readme
++ add emacs
++ Install pycharm
++ add shutdown script
++ autostart fcxe power manager
+- Add desktop status

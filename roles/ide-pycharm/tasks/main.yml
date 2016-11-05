@@ -6,7 +6,7 @@
   register: pycharm
 
 - name: PyCharm downloaded
-  get_url: url="http://download.jetbrains.com/python/pycharm-professional-{{pycharm_version}}.tar.gz" dest=/tmp/pycharm.tar.gz
+  get_url: url="https://download.jetbrains.com/python/pycharm-professional-{{pycharm_version}}.tar.gz" dest=/tmp/pycharm.tar.gz
   when: not pycharm.stat.exists
 
 - name: PyCharm installed

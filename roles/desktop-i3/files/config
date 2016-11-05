@@ -35,6 +35,7 @@ bindsym $mod+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
+
 bindsym $mod+space exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -fn 'DejaVu Sans-10' -l 20"
 
 # change focus
@@ -150,15 +151,16 @@ mode "resize" {
 # Shutdown mode
 set $mode_system System (l) lock, (s) suspend, (r) reboot, (q) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym q exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym l exec --no-startup-id /home/jt/i3exit lock, mode "default"
+    bindsym s exec --no-startup-id /home/jt/i3exit suspend, mode "default"
+    bindsym r exec --no-startup-id /home/jt/i3exit reboot, mode "default"
+    bindsym q exec --no-startup-id /home/jt/i3exit shutdown, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+Pause mode "$mode_system"
 
 bindsym $mod+r mode "resize"
@@ -190,3 +192,6 @@ for_window [title="Atom"] border none
 #Make some windows float by deafult
 for_window [title="Git Gui"] floating enable
 for_window [title="gitk"] floating enable
+
+exec --no-startup-id sleep 3 && /usr/bin/xfce4-power-manager
+exec --no-startup-id sleep 3 && /usr/bin/nm-applet

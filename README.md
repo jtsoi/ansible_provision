@@ -7,18 +7,39 @@ Stop looking you wont find any private keys or API keys here. =P
 Get started
 ===========
 
-    $ git clone git@github.com:jtsoi/ansible_provision.git
-    $ cd ansible_provision
-    $
-    $ sudo apt-get install python-pip python-dev aptitude -y
-    $ sudo pip install virtualenvwrapper
-    $ . virtualenvwrapper.sh
-    $ mkvirtualenv ansible_provision
-    $ pip install -r requirements.txt
-    $
-    $ nano group_vars/all  # Edit with your data.
+Install git:
+```
+# sudo apt-get install git
+```
 
-Dev machine
-===========
+Clone ansible repo:
+```
+# git clone https://github.com/jtsoi/ansible_provision.git
+# cd ansible_provision
+```
 
-    $ ansible-playbook -K -i inventory dev-machine.yml --tags=tags
+Install python env:
+```
+# sudo apt-get install python-pip python-dev aptitude -y
+# sudo pip install virtualenv
+```
+
+Install ansible deps:
+```
+# make install
+```
+
+Export AWS secrets, and pull config file
+```
+# export AWS_ACCESS_KEY=XXX
+# export AWS_SECRET_ACCESS_KEY=YYY
+# make pull-vars
+```
+
+Dev machine roles
+=================
+
+```
+# make dev.zzz
+```
+Make sure you add the SSH key =)
