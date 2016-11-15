@@ -15,6 +15,7 @@
     - wget
     - dstat
     - python-software-properties
+    - apt-transport-https
     - build-essential
     - whois
     - emacs-nox
