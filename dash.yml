@@ -1,0 +1,14 @@
+---
+## See Makefile
+
+
+- hosts: dash
+  sudo: false
+
+  roles:
+
+    - role: remote-user
+      tags: bootstrap
+
+    - role: server-sshd
+      tags: bootstrap

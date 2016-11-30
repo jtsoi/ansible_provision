@@ -33,3 +33,16 @@ push-vars: check-aws-env
 
 dev.%:
 	$(PYTHON_BIN)/ansible-playbook -K -i inventory dev-machine.yml --tags=$(patsubst dev.%,%,$@)
+
+
+nuc.bootstrap:
+	$(PYTHON_BIN)/ansible-playbook nuc-nas.yml -K -k -i inventory -c paramiko --tags=bootstrap --user=ubuntu
+
+nuc.%:
+	$(PYTHON_BIN)/ansible-playbook -K -i inventory nuc-nas.yml --tags=$(patsubst nuc.%,%,$@)
+
+dash.bootstrap:
+	$(PYTHON_BIN)/ansible-playbook dash.yml -K -k -i inventory -c paramiko --tags=bootstrap --user=jt
+
+dash.%:
+	$(PYTHON_BIN)/ansible-playbook -K -i inventory dash.yml --tags=$(patsubst dash.%,%,$@)
