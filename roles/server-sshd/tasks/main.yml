@@ -9,6 +9,7 @@
     validate='/usr/sbin/sshd -t -f %s'
     backup=yes
   with_items:
+    - { key: 'Port',                   value: "{{ sshd_port }}"}
     - { key: 'PermitRootLogin',        value: "no"}
     - { key: 'PasswordAuthentication', value: "no"}
     - { key: 'AllowGroups',            value: "sudo"}

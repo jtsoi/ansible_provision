@@ -1,6 +1,6 @@
 ---
 
-- name: install latest kernel for ibuntu 13.04+
+- name: install latest kernel for ubuntu 13.04+
   apt:
     pkg: "{{ item }}"
     state: latest
