@@ -19,3 +19,5 @@ couchpotato_config_path: "{{ user_home }}/.couchpotato"
 
 htpc_manager_app_path: "{{ user_home }}/Apps/htpc_manager"
 htpc_manager_config_path: "{{ user_home }}/.htpc_manager"
+
+svtplaydl_app_path: "{{ user_home }}/Apps/svtplaydl"

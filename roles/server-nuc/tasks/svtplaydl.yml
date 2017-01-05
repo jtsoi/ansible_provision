@@ -1,0 +1,46 @@
+---
+
+- name: ffmpeg repo
+  sudo: true
+  apt_repository:
+    repo: "ppa:mc3man/trusty-media"
+
+
+- name: install svtplaydl dependencies
+  sudo: true
+  apt:
+    pkg: "{{item}}"
+    state: latest
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - ffmpeg
+#    - libavcodec
+
+- name: folder exists
+  file:
+    path: "{{ svtplaydl_app_path }}"
+    state: directory
+    owner: "{{user}}"
+    group: "public"
+
+
+- name: install svtplaydl
+  sudo: true
+  pip:
+    name: "svtplay-dl"
+
+- name: copy bash file
+  copy:
+    src: svtplaydl.sh
+    mode: 0744
+    dest: "{{svtplaydl_app_path}}/svtplaydl.sh"
+
+- name: setup automated cron
+  cron:
+    name: "svtplaydl_cron"
+    hour: 21
+    minute: 53
+    job: >
+      {{svtplaydl_app_path}}/svtplaydl.sh
+      >> {{svtplaydl_app_path}}/$(date +\%Y_\%m_\%d).log 2>&1

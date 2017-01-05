@@ -15,6 +15,9 @@
     - role: common
       tags: common
 
+    - role: sdk-python
+      tags: python
+
     - role: server-supervisord
       tags: supervisord
 

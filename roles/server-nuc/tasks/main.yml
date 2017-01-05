@@ -8,6 +8,7 @@
 - include: sabnzb.yml tags=sabnzb
 - include: sickbeard.yml tags=sickbeard
 - include: couchpotato.yml tags=couchpotato
-- include: datadog.yml tags=datadog
+- include: svtplaydl.yml tags=svtplaydl
+# - include: datadog.yml tags=datadog
 # - include: minidlna.yml tags=minidlna
-- include: htpc_manager.yml tags=htpc_manager
+# - include: htpc_manager.yml tags=htpc_manager
