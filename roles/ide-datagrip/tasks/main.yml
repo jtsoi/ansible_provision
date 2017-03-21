@@ -2,12 +2,12 @@
 
 - name: stat datagrip dir
   sudo: true
-  stat: path=/home/{{user}}/Apps/DataGrip-{{pycharm_version}}
+  stat: path=/home/{{user}}/Apps/DataGrip-{{ datagrip_version }}
   register: datagrip
 
 - name: datagrip downloaded
   get_url:
-    url: "https://download.jetbrains.com/datagrip/datagrip-{{datagrip_version}}-custom-jdk-linux.tar.gz"
+    url: "https://download-cf.jetbrains.com/datagrip/datagrip-{{ datagrip_version }}.tar.gz"
     dest: "/tmp/datagrip.tar.gz"
   when: not datagrip.stat.exists
 
