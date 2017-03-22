@@ -11,27 +11,33 @@
     - python-pip
     - python-dev
 
-- name: virtualenv wrapper installed
+- name: upgrade pip installed
   sudo: true
   pip:
-    name: virtualenvwrapper
+    name: pip
     state: latest
 
-- name: virtualenv wrapper configured
-  copy:
-    src: virtualenvwrapper.sh
-    dest: /home/{{user}}/.bashrc.d/virtualenvwrapper.sh
-    owner: "{{ user }}"
-    group: "{{ user }}"
-    mode: 0644
-
-- name: sourced virtualenvwrapper.sh from barchrc
-  lineinfile:
-    dest: "/home/{{user}}/.bashrc"
-    line: ". ~/.bashrc.d/virtualenvwrapper.sh"
-
-- name: system ipython installed
+- name: virtualenv installed
   sudo: true
   pip:
-    name: ipython
+    name: virtualenv
     state: latest
+
+#- name: virtualenv wrapper configured
+#  copy:
+#    src: virtualenvwrapper.sh
+#    dest: /home/{{user}}/.bashrc.d/virtualenvwrapper.sh
+#    owner: "{{ usear }}"
+#    group: "{{ user }}"
+#    mode: 0644
+#
+#- name: sourced virtualenvwrapper.sh from barchrc
+#  lineinfile:
+#    dest: "/home/{{user}}/.bashrc"
+#    line: ". ~/.bashrc.d/virtualenvwrapper.sh"
+#
+#- name: system ipython installed
+#  sudo: true
+#  pip:
+#    name: ipython
+#    state: latest

@@ -16,5 +16,5 @@
 - name: I3 exit script
   copy: src=i3exit dest=/home/{{user}}/i3exit owner={{user}} group={{user}} mode=0744
 
-- include: wallpapers.yml
+#- include: wallpapers.yml
 - include: apps.yml
